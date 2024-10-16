@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Vocabularies" %>
+
+<h1>Vocabularies</h1>
+
+<div id="vocabularies">
+  <% @vocabularies.each do |vocabulary| %>
+    <%= render vocabulary %>
+    <p>
+      <%= link_to "Show this vocabulary", vocabulary %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New vocabulary", new_vocabulary_path %>

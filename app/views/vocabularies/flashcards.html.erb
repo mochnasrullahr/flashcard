@@ -1,0 +1,29 @@
+<h1>Flashcards</h1>
+
+<div class="flashcard">
+  <div class="kanji">
+    <%= @vocabulary.kanji %>
+  </div>
+  <div class="hiragana">
+    <%= @vocabulary.hiragana %>
+  </div>
+  <div class="romaji">
+    <%= @vocabulary.romaji %>
+  </div>
+  <div class="definition">
+    <strong>Definition:</strong> <%= @vocabulary.definition %>
+  </div>
+  <div class="part_of_speech">
+    <strong>Part of Speech:</strong> <%= @vocabulary.part_of_speech %>
+  </div>
+</div>
+
+<div class="navigation">
+  <% prev_id = (@vocabularies.index(@vocabulary) - 1) % @vocabularies.length %>
+  <% next_id = (@vocabularies.index(@vocabulary) + 1) % @vocabularies.length %>
+
+  <%= link_to 'Previous', flashcards_vocabularies_path(id: prev_id), class: "nav-button" %>
+  <%= link_to 'Next', flashcards_vocabularies_path(id: next_id), class: "nav-button" %>
+</div>
+
+<%= link_to 'Back to Vocabulary List', vocabularies_path, class: "back-button" %>

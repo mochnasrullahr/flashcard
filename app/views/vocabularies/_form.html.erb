@@ -1,0 +1,42 @@
+<%= form_with(model: vocabulary) do |form| %>
+  <% if vocabulary.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(vocabulary.errors.count, "error") %> prohibited this vocabulary from being saved:</h2>
+
+      <ul>
+        <% vocabulary.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :kanji, style: "display: block" %>
+    <%= form.text_field :kanji %>
+  </div>
+
+  <div>
+    <%= form.label :hiragana, style: "display: block" %>
+    <%= form.text_field :hiragana %>
+  </div>
+
+  <div>
+    <%= form.label :romaji, style: "display: block" %>
+    <%= form.text_field :romaji %>
+  </div>
+
+  <div>
+    <%= form.label :definition, style: "display: block" %>
+    <%= form.text_area :definition %>
+  </div>
+
+  <div>
+    <%= form.label :part_of_speech, style: "display: block" %>
+    <%= form.text_field :part_of_speech %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
